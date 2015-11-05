@@ -16,6 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/favstar"
+                android:layout_alignTop="@+id/movie_title_text"
+                android:layout_toLeftOf="@+id/posterImageView"
+                android:layout_toStartOf="@+id/posterImageView" />
 
             <ImageView
                 android:id="@+id/posterImageView"
@@ -125,50 +132,6 @@
                 android:layout_alignParentStart="true"
                 android:clickable="true"
                 android:weightSum="3">
-
-                <!--<View-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="1dp"-->
-                    <!--android:background="@android:color/darker_gray"/>-->
-
-                <!--<View-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="1dp"-->
-                    <!--android:background="@android:color/darker_gray"/>-->
-
-                <!--<View-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="1dp"-->
-                    <!--android:background="@android:color/darker_gray"/>-->
-
-                <!--<View-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="1dp"-->
-                    <!--android:background="@android:color/darker_gray"/>-->
-
-                <!--<Button-->
-                    <!--style="?android:attr/buttonStyleSmall"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="50dp"-->
-                    <!--android:text="Trailer 1"-->
-                    <!--android:id="@+id/button"-->
-                    <!--android:layout_weight="1" />-->
-
-                <!--<Button-->
-                    <!--style="?android:attr/buttonStyleSmall"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Trailer 2"-->
-                    <!--android:id="@+id/button2"-->
-                    <!--android:layout_weight="1" />-->
-
-                <!--<Button-->
-                    <!--style="?android:attr/buttonStyleSmall"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Trailer 3"-->
-                    <!--android:id="@+id/button3"-->
-                    <!--android:layout_weight="1" />-->
 
             </LinearLayout>
 

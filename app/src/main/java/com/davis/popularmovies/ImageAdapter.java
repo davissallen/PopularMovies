@@ -19,7 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ImageAdapter extends BaseAdapter {
-    private Context mContext; /* = getActivity().getApplicationContext(); */
+    private Context mContext;
     String[] posterPaths;
 
     private JSONArray jsonArray;
