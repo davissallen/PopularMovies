@@ -164,12 +164,6 @@ public class DetailFragment extends Fragment {
 
             trailerButtonLayout.setWeightSum(trailerPaths.length);
 
-//            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-//                    LinearLayout.LayoutParams.MATCH_PARENT,
-//                    LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
-//
-//            trailerButtonLayout.setLayoutParams(param);
-
             Button[] trailerButtons = new Button[trailerPaths.length];
 
             for (int i = 0; i < trailerPaths.length; i++) {
