@@ -229,6 +229,13 @@ public class DetailFragment extends Fragment {
         final ImageView posterImage = (ImageView) fragmentView.findViewById(R.id.posterImageView);
         Picasso.with(getActivity().getApplicationContext()).load(imagePath).into(posterImage);
 
+        final Button b = (Button) fragmentView.findViewById(R.id.favoriteButton);
+        b.setOnClickListener(new View.onClickListener() {
+            public void onCLick(View view) {
+                
+            }
+        });
+
         return fragmentView;
     }
 
