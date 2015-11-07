@@ -16,6 +16,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
+    <!--<include layout="@layout/favorite_grid_indicator" />-->
 
     <FrameLayout
         android:name="com.davis.popularmovies.FrameLayout"

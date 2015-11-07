@@ -16,6 +16,10 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+    // flag: will make API call each time favorites is unselected,
+    // so movies will always be updated
+    int favoritesFlag = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+
+        // if favorites is still the sorting method...
+        if (favoritesFlag == 1) {
+            GridView gridView = (GridView) findViewById(R.id.gridview);
+            JSONArray jsonArray;
+            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+        }
     }
 
     @Override
@@ -76,19 +88,41 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         GridView gridView = (GridView) findViewById(R.id.gridview);
-        JSONArray jsonArray = ((ImageAdapter) (gridView.getAdapter())).getJsonArray();
-
+        JSONArray jsonArray;
 
         if (id == R.id.sortByPopularity) {
+            if (favoritesFlag == 1) {
+                FetchMoviesTask fmt = new FetchMoviesTask(getApplicationContext(), gridView);
+                fmt.execute("popularity.desc");
+                favoritesFlag = 0;
+            }
+
+            jsonArray = ((ImageAdapter) (gridView.getAdapter())).getJsonArray();
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity, getApplicationContext()));
             setTitle("Most Popular");
+
             return true;
         } else if (id == R.id.sortByHighestRated) {
+            if (favoritesFlag == 1) {
+                FetchMoviesTask fmt = new FetchMoviesTask(getApplicationContext(), gridView);
+                fmt.execute("popularity.desc");
+                favoritesFlag = 0;
+            }
+
+            jsonArray = ((ImageAdapter) (gridView.getAdapter())).getJsonArray();
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByHighestRated, getApplicationContext()));
             setTitle("Highest Rated");
+
+            return true;
+        } else if (id == R.id.sortByFavorites) {
+            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+            setTitle("Favorites");
+            favoritesFlag = 1;
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }
