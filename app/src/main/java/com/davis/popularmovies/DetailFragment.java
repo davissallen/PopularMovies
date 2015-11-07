@@ -170,7 +170,7 @@ public class DetailFragment extends Fragment {
 
             for (int i = 0; i < trailerPaths.length; i++) {
                 trailerButtons[i] = new Button(getActivity().getApplicationContext());
-                trailerButtons[i].setText("Trailer" + (i + 1));
+                trailerButtons[i].setText("Trailer " + (i + 1));
 
                 trailerButtonLayout.addView(trailerButtons[i]);
 
@@ -231,12 +231,16 @@ public class DetailFragment extends Fragment {
         final ImageView posterImage = (ImageView) fragmentView.findViewById(R.id.posterImageView);
         Picasso.with(getActivity().getApplicationContext()).load(imagePath).into(posterImage);
 
+        final ImageView favStar = (ImageView) fragmentView.findViewById(R.id.favStar);
+
         final Button b = (Button) fragmentView.findViewById(R.id.favoriteButton);
         if (FavoriteMovies.isFavorite(object) == -1) {
-            b.setText("Mark as Favorite");
+            b.setText("Favorite");
+            favStar.setVisibility(View.INVISIBLE);
         }
         else {
             b.setText("un-Favorite");
+            favStar.setVisibility(View.VISIBLE);
         }
 
         b.setOnClickListener(new View.OnClickListener() {
@@ -246,11 +250,13 @@ public class DetailFragment extends Fragment {
 
                 if (position != -1) {
                     FavoriteMovies.removeFavoriteMovie(getActivity().getApplicationContext(), position);
-                    b.setText("Mark as Favorite");
+                    b.setText("Favorite");
+                    favStar.setVisibility(View.INVISIBLE);
                 }
                 else {
                     FavoriteMovies.addFavoriteMovie(getActivity().getApplicationContext(), object);
                     b.setText("un-Favorite");
+                    favStar.setVisibility(View.VISIBLE);
                 }
             }
 
