@@ -16,8 +16,8 @@
         android:layout_alignParentStart="true">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/posterImageView"
@@ -50,6 +50,25 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mark as Favorite"
+                android:id="@+id/favoriteButton"
+                android:layout_below="@+id/movie_title_text"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/const_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_below="@+id/favoriteButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
             <TextView
                 android:id="@+id/movie_rating_text"
                 android:layout_width="wrap_content"
@@ -59,31 +78,15 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_alignTop="@+id/const_rating"
                 android:layout_toRightOf="@+id/const_rating"
-                android:layout_toEndOf="@+id/const_rating" />
+                android:layout_below="@+id/favoriteButton" />
 
             <TextView
-                android:id="@+id/movie_desc_text"
+                android:id="@+id/const_release"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/movie_desc_info_text"
-                android:layout_alignStart="@+id/movie_desc_info_text"
-                android:layout_below="@+id/movie_release_date_text"
-                android:paddingTop="25dp"
-                android:text="Plot Synopsis"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#0F0F0F" />
-
-            <TextView
-                android:id="@+id/movie_desc_info_text"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignEnd="@+id/posterImageView"
-                android:layout_alignRight="@+id/posterImageView"
-                android:layout_below="@+id/movie_desc_text"
-                android:padding="10dp"
-                android:paddingTop="20dp"
-                android:text="info"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_below="@+id/movie_rating_text"
+                android:text="Release Date: "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/movie_release_date_text"
@@ -97,24 +100,26 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
-                android:id="@+id/const_rating"
+                android:id="@+id/const_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rating:"
+                android:layout_below="@+id/movie_release_date_text"
+                android:paddingTop="25dp"
+                android:text="Plot Synopsis"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_below="@+id/button"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:textColor="#0F0F0F" />
 
             <TextView
-                android:id="@+id/const_release"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/movie_desc_text"
-                android:layout_alignStart="@+id/movie_desc_text"
-                android:layout_below="@+id/movie_rating_text"
-                android:text="Release Date: "
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:id="@+id/movie_desc_info_text"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignRight="@+id/posterImageView"
+                android:layout_below="@+id/const_description"
+                android:padding="10dp"
+                android:paddingTop="20dp"
+                android:text="info"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
 
             <LinearLayout
                 android:id="@+id/trailerButtonLayout"
@@ -123,20 +128,10 @@
                 android:layout_height="fill_parent"
                 android:layout_below="@+id/movie_desc_info_text"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:clickable="true"
                 android:weightSum="3">
 
             </LinearLayout>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Favorite"
-                android:id="@+id/favoriteButton"
-                android:layout_below="@+id/movie_title_text"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 

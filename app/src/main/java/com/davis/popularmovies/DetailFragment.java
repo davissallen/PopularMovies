@@ -37,6 +37,8 @@ public class DetailFragment extends Fragment {
 
     private String[] trailerPaths;
 
+    JSONObject object;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,8 @@ public class DetailFragment extends Fragment {
 
     // fragments don't like constructors
     public void initFragment(JSONObject object) throws Exception {
+
+        this. object = object;
 
         final String TITLE = "title";
         final String DESCRIPTION = "overview";
@@ -58,8 +62,6 @@ public class DetailFragment extends Fragment {
                 rating = object.getString(RATING);
 
                 imagePath = "https://image.tmdb.org/t/p/w185" + object.getString("poster_path");
-
-//                LinearLayout linearLayout = (LinearLayout) getActivity().findViewById(R.id.trailerButtonLayout);
 
                 FetchTrailerTask ftt = new FetchTrailerTask();
                 ftt.execute(object.getInt("id"));
@@ -230,10 +232,28 @@ public class DetailFragment extends Fragment {
         Picasso.with(getActivity().getApplicationContext()).load(imagePath).into(posterImage);
 
         final Button b = (Button) fragmentView.findViewById(R.id.favoriteButton);
-        b.setOnClickListener(new View.onClickListener() {
-            public void onCLick(View view) {
-                
+        if (FavoriteMovies.isFavorite(object) == -1) {
+            b.setText("Mark as Favorite");
+        }
+        else {
+            b.setText("un-Favorite");
+        }
+
+        b.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                int position = FavoriteMovies.isFavorite(object);
+
+                if (position != -1) {
+                    FavoriteMovies.removeFavoriteMovie(getActivity().getApplicationContext(), position);
+                    b.setText("Mark as Favorite");
+                }
+                else {
+                    FavoriteMovies.addFavoriteMovie(getActivity().getApplicationContext(), object);
+                    b.setText("un-Favorite");
+                }
             }
+
         });
 
         return fragmentView;
