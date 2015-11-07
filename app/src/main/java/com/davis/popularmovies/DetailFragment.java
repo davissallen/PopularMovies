@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -39,9 +41,14 @@ public class DetailFragment extends Fragment {
 
     JSONObject object;
 
+    public DetailFragment() {
+        setHasOptionsMenu(true);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     // fragments don't like constructors
@@ -265,4 +272,10 @@ public class DetailFragment extends Fragment {
         return fragmentView;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        menu.findItem(R.id.sort).setVisible(false);
+    }
 }

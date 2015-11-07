@@ -16,6 +16,7 @@
         <menu>
             <item android:id="@+id/sortByPopularity" android:title="Popularity">Popularity</item>
             <item android:id="@+id/sortByHighestRated" android:title="Highest Rated">Highest Rated</item>
+            <item android:id="@+id/sortByFavorites" android:title="Favorites">Favorites</item>
         </menu>
     </item>
 </menu>
