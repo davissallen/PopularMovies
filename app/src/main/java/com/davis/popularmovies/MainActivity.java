@@ -71,9 +71,16 @@ public class MainActivity extends AppCompatActivity {
         // if favorites is still the sorting method...
         if (favoritesFlag == 1) {
             GridView gridView = (GridView) findViewById(R.id.gridview);
-            JSONArray jsonArray;
-            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+
+//            if (FavoriteMovies.getNumItemsInQueue() == 0) {
+//                TextView textView = new TextView(getApplicationContext());
+//                textView.setText("Sorry, there are no movies in your Favorites List!");
+//            }
+//            else {
+                JSONArray jsonArray;
+                jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+                gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+//            }
         }
     }
 
@@ -115,6 +122,16 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         } else if (id == R.id.sortByFavorites) {
+
+//            if (FavoriteMovies.getNumItemsInQueue() == 0) {
+//                TextView textView = new TextView(getApplicationContext());
+//                textView.setText("Sorry, there are no movies in your Favorites List!");
+//            }
+//            else {
+                jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+                gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+//            }
+
             jsonArray = FavoriteMovies.getFavoriteMoviesArray();
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
             setTitle("Favorites");

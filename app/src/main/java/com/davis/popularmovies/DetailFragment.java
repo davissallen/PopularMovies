@@ -88,7 +88,6 @@ public class DetailFragment extends Fragment {
         @Override
         protected JSONObject doInBackground(Integer... params) {
 
-
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
 
@@ -189,6 +188,118 @@ public class DetailFragment extends Fragment {
                     }
                 });
             }
+        }
+    }
+
+    public class FetchReviewsTask extends AsyncTask<String, Void, JSONObject> {
+
+        public FetchReviewsTask() {
+
+        }
+
+        @Override
+        protected JSONObject doInBackground(String... params) {
+
+            HttpURLConnection urlConnection = null;
+            BufferedReader reader = null;
+
+            JSONObject reviewObject;
+
+            final String myKey = "fc49cd59ea3b93d645752f06ab70ca50";
+
+            try {
+
+                // http://api.themoviedb.org/3/review/id?api_key=fc49cd59ea3b93d645752f06ab70ca50
+
+                Uri.Builder builder = new Uri.Builder();
+                builder.scheme("http")
+                        .authority("api.themoviedb.org")
+                        .appendPath("3")
+                        .appendPath("review")
+                        .appendPath(params[0])
+                        .appendQueryParameter("api_key", myKey)
+                        .build();
+
+                URL url = new URL(builder.toString());
+
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("GET");
+                urlConnection.connect();
+
+                InputStream inputStream = urlConnection.getInputStream();
+
+                StringBuffer buffer = new StringBuffer();
+                if (inputStream == null) {
+                    return null;
+                }
+                reader = new BufferedReader(new InputStreamReader(inputStream));
+
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    buffer.append(line + "\n");
+                }
+
+                if (buffer.length() == 0) {
+                    return null;
+                }
+
+                String trailerJSONString = buffer.toString();
+
+                reviewObject = new JSONObject(trailerJSONString);
+
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Could not connect to the API ", e);
+                reviewObject = null;
+            } finally {
+                if (urlConnection != null) {
+                    urlConnection.disconnect();
+                }
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (final Exception e) {
+                        Log.e(LOG_TAG, "Error closing stream", e);
+                    }
+                }
+            }
+            return reviewObject;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+
+            try {
+                int length = jsonObject.getJSONArray("results").length();
+
+                for (int i = 0; i < length; i++) {
+                    trailerPaths[i] = jsonObject.getJSONArray("results").getJSONObject(i).getString("key");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            LinearLayout trailerButtonLayout = (LinearLayout) getView().findViewById(R.id.trailerButtonLayout);
+
+            trailerButtonLayout.setWeightSum(trailerPaths.length);
+
+            Button[] trailerButtons = new Button[trailerPaths.length];
+
+            for (int i = 0; i < trailerPaths.length; i++) {
+                trailerButtons[i] = new Button(getActivity().getApplicationContext());
+                trailerButtons[i].setText("Trailer " + (i + 1));
+
+                trailerButtonLayout.addView(trailerButtons[i]);
+
+                final int finalI = i;
+                trailerButtons[i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        youtubeInit(finalI);
+                    }
+                });
+            }
+
+
         }
     }
 

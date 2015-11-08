@@ -14,6 +14,10 @@ public class FavoriteMovies {
     private static JSONArray favoriteMoviesArray = new JSONArray();
     private static int numItemsInQueue = 0;
 
+    public static int getNumItemsInQueue() {
+        return numItemsInQueue;
+    }
+
     public static int isFavorite(JSONObject jsonObject) {
         int movieID;
         for(int i = 0; i < numItemsInQueue; i++) {
