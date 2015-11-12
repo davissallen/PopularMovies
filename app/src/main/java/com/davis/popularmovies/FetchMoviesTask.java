@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.GridView;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -84,8 +83,7 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
         } catch (Exception e) {
             Log.e(LOG_TAG, "Could not connect to the API ", e);
-            // If the code didn't successfully get the movie data, there's no point in attempting
-            // to parse it.
+
             return null;
         } finally {
             // if website DNE, quit
@@ -114,9 +112,10 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
             jsonArray = jsonObject.getJSONArray("results");
 
-        } catch (JSONException e) {
+        } catch (Exception e) {
             Log.e(LOG_TAG, e.getMessage(), e);
             e.printStackTrace();
+            ShowToast.showToast("No Internet Connection :(");
         }
 
         GridView gridview = (GridView) view.findViewById(R.id.gridview);

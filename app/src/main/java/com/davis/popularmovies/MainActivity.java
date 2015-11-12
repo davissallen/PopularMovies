@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     // so movies will always be updated
     int favoritesFlag = 0;
 
+    // internetFlag: if there was no
+//    boolean internet = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
         setTitle("Most Popular");
 
         final GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -69,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         openDB();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+//        ShowToast.showToast("the app is reopened");
+
+//        if (!internet) {
+//            final GridView gridview = (GridView) findViewById(R.id.gridview);
+//
+//            FetchMoviesTask fmt = new FetchMoviesTask(gridview);
+//            fmt.execute("popularity.desc");
+//        }
     }
 
     @Override
@@ -109,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         GridView gridView = (GridView) findViewById(R.id.gridview);
         JSONArray jsonArray;
+
 
         if (id == R.id.sortByPopularity) {
             if (favoritesFlag == 1) {
