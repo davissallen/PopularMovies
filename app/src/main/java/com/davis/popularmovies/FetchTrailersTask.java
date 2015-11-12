@@ -127,7 +127,6 @@ public class FetchTrailersTask extends AsyncTask<Integer, Void, JSONObject> {
             trailerNum = "Trailer " + (i + 1);
             trailerButtons[i] = new Button(App.context());
             trailerButtons[i].setText(trailerNum);
-
             trailerButtons[i].setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_play_circle_outline_black_24dp, 0, 0, 0);
 
             LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
