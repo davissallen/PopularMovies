@@ -44,7 +44,7 @@
                 android:maxWidth="200dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="Movie Title"
+                android:text="@string/movie_title"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="30dp"
                 android:layout_alignTop="@+id/posterImageView"
@@ -54,18 +54,29 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Favorite"
+                android:text="@string/favorite"
                 android:id="@+id/favoriteButton"
                 android:layout_below="@+id/movie_title_text"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:contentDescription="@string/favorite_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:id="@+id/favStar"
+                android:src="@drawable/small"
+                android:layout_below="@+id/movie_title_text"
+                android:layout_toRightOf="@+id/favoriteButton"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/const_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
-                android:text="Rating:"
+                android:text="@string/rating"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_below="@+id/favoriteButton"
                 android:layout_alignParentLeft="true"
@@ -77,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingLeft="10dp"
-                android:text="Rating"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_alignTop="@+id/const_rating"
                 android:layout_toRightOf="@+id/const_rating"
@@ -88,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/movie_rating_text"
-                android:text="Release Date: "
+                android:text="@string/release_date"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
@@ -99,7 +109,6 @@
                 android:layout_toEndOf="@+id/const_release"
                 android:layout_toRightOf="@+id/const_release"
                 android:paddingLeft="10dp"
-                android:text="Release"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
@@ -108,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/movie_release_date_text"
                 android:paddingTop="15dp"
-                android:text="Plot Synopsis"
+                android:text="@string/plot_synopsis"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#0F0F0F" />
 
@@ -120,31 +129,61 @@
                 android:layout_below="@+id/const_description"
                 android:padding="10dp"
                 android:paddingTop="20dp"
-                android:text="info"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/movie_desc_info_text"
+                android:id="@+id/trailers_separator"
+                android:background="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/watch_a_trailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/trailers_separator"
+                android:text="@string/watch_a_trailer"
+                android:textColor="@color/black"
+                android:textSize="12pt"
+                android:paddingBottom="5dp"
+                android:paddingTop="10dp"/>
 
             <LinearLayout
-                android:id="@+id/trailerButtonLayout"
+                android:id="@+id/trailer_button_layout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:layout_below="@+id/movie_desc_info_text"
+                android:layout_below="@+id/watch_a_trailer"
+                android:paddingBottom="15dp"
                 android:layout_alignParentLeft="true"
-                android:clickable="true"
-                android:weightSum="3">
-
+                android:clickable="true">
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/trailer_button_layout"
+                android:id="@+id/reviews_separator"
+                android:background="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/reviews"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:id="@+id/favStar"
-                android:src="@drawable/small"
-                android:layout_below="@+id/movie_title_text"
-                android:layout_toRightOf="@+id/favoriteButton"
+                android:text="@string/reviews"
+                android:textColor="@color/black"
+                android:paddingTop="5dp"
+                android:textSize="10pt"
+                android:layout_below="@+id/reviews_separator"
                 android:visibility="invisible" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/reviews_linear_layout"
+                android:layout_below="@id/reviews" />
 
         </RelativeLayout>
 

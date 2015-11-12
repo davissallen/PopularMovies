@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -66,142 +65,6 @@ public class DetailFragment extends Fragment {
         }
     }
 
-//    public class FetchReviewsTask extends AsyncTask<String, Void, JSONObject> {
-//
-//        public FetchReviewsTask() {
-//
-//        }
-//
-//        @Override
-//        protected JSONObject doInBackground(String... params) {
-//
-//            HttpURLConnection urlConnection = null;
-//            BufferedReader reader = null;
-//
-//            JSONObject reviewObject;
-//
-//            final String myKey = "fc49cd59ea3b93d645752f06ab70ca50";
-//
-//            try {
-//
-//                // http://api.themoviedb.org/3/review/id?api_key=fc49cd59ea3b93d645752f06ab70ca50
-//
-//                Uri.Builder builder = new Uri.Builder();
-//                builder.scheme("http")
-//                        .authority("api.themoviedb.org")
-//                        .appendPath("3")
-//                        .appendPath("review")
-//                        .appendPath(params[0])
-//                        .appendQueryParameter("api_key", myKey)
-//                        .build();
-//
-//                URL url = new URL(builder.toString());
-//
-//                urlConnection = (HttpURLConnection) url.openConnection();
-//                urlConnection.setRequestMethod("GET");
-//                urlConnection.connect();
-//
-//                InputStream inputStream = urlConnection.getInputStream();
-//
-//                StringBuffer buffer = new StringBuffer();
-//                if (inputStream == null) {
-//                    return null;
-//                }
-//                reader = new BufferedReader(new InputStreamReader(inputStream));
-//
-//                String line;
-//                while ((line = reader.readLine()) != null) {
-//                    buffer.append(line + "\n");
-//                }
-//
-//                if (buffer.length() == 0) {
-//                    return null;
-//                }
-//
-//                String trailerJSONString = buffer.toString();
-//
-//                reviewObject = new JSONObject(trailerJSONString);
-//
-//            } catch (Exception e) {
-//                Log.e(LOG_TAG, "Could not connect to the API ", e);
-//                reviewObject = null;
-//            } finally {
-//                if (urlConnection != null) {
-//                    urlConnection.disconnect();
-//                }
-//                if (reader != null) {
-//                    try {
-//                        reader.close();
-//                    } catch (final Exception e) {
-//                        Log.e(LOG_TAG, "Error closing stream", e);
-//                    }
-//                }
-//            }
-//            return reviewObject;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(JSONObject jsonObject) {
-//
-//            try {
-//                int length = jsonObject.getJSONArray("results").length();
-//
-//                for (int i = 0; i < length; i++) {
-//                    trailerPaths[i] = jsonObject.getJSONArray("results").getJSONObject(i).getString("key");
-//                }
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//            LinearLayout trailerButtonLayout = (LinearLayout) getView().findViewById(R.id.trailerButtonLayout);
-//
-//            trailerButtonLayout.setWeightSum(trailerPaths.length);
-//
-//            Button[] trailerButtons = new Button[trailerPaths.length];
-//
-//            for (int i = 0; i < trailerPaths.length; i++) {
-//                trailerButtons[i] = new Button(getActivity().getApplicationContext());
-//                trailerButtons[i].setText("Trailer " + (i + 1));
-//
-//                trailerButtonLayout.addView(trailerButtons[i]);
-//
-//                final int finalI = i;
-//                trailerButtons[i].setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        youtubeInit(finalI);
-//                    }
-//                });
-//            }
-//
-//
-//        }
-//    }
-
-//    private void youtubeInit(int trailerID) {
-//        String path = "http://www.youtube.com/watch?v=";
-//
-//        try {
-//            switch (trailerID) {
-//                case (0):
-//                    path += trailerPaths[0];
-//                    break;
-//                case (1):
-//                    path += trailerPaths[1];
-//                    break;
-//                case (2):
-//                    path += trailerPaths[2];
-//                    break;
-//                default:
-//                    break;
-//            }
-//        } catch (Exception e) {
-//            Log.e(LOG_TAG, "Incorrect trailer path");
-//        }
-//
-//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(path)));
-//    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -254,11 +117,16 @@ public class DetailFragment extends Fragment {
 
         });
 
-        LinearLayout trailerButtonLayout = (LinearLayout) fragmentView.findViewById(R.id.trailerButtonLayout);
-
-        FetchTrailerTask ftt = new FetchTrailerTask(trailerButtonLayout);
+        FetchTrailersTask ftt = new FetchTrailersTask(fragmentView);
         try {
             ftt.execute(object.getInt("id"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        FetchReviewsTask frr = new FetchReviewsTask(fragmentView);
+        try {
+            frr.execute(object.getInt("id"));
         } catch (JSONException e) {
             e.printStackTrace();
         }

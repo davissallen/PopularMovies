@@ -2,5 +2,14 @@
     <string name="app_name">Popular Movies</string>
     <string name="action_settings">Settings</string>
     <string name="sort">sort</string>
+    <string name="close">Close</string>
+    <string name="reviews">Reviews</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="favorite">Favorite</string>
+    <string name="rating">Rating:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="plot_synopsis">Plot Synopsis</string>
+    <string name="favorite_star">favorite_star</string>
+    <string name="watch_a_trailer">Watch a Trailer:</string>
     <color name="white">#FFFFFF</color>
 </resources>

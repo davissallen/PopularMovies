@@ -17,16 +17,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class FetchTrailerTask extends AsyncTask<Integer, Void, JSONObject> {
+public class FetchTrailersTask extends AsyncTask<Integer, Void, JSONObject> {
 
     private final String LOG_TAG = getClass().getSimpleName();
 
-    private LinearLayout trailerButtonLayout;
-    String[] trailerPaths;
+    private final LinearLayout trailerButtonLayout;
+    private String[] trailerPaths;
 
-
-    public FetchTrailerTask(View view) {
-        trailerButtonLayout = (LinearLayout) view;
+    public FetchTrailersTask(View view) {
+        trailerButtonLayout = (LinearLayout) view.findViewById(R.id.trailer_button_layout);
     }
 
     @Override
@@ -101,8 +100,12 @@ public class FetchTrailerTask extends AsyncTask<Integer, Void, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
+        int length;
+
         try {
-            int length = jsonObject.getJSONArray("results").length();
+            length = jsonObject.getJSONArray("results").length();
+
+            if (length > 3) { length = 3; } // set max num of trailers to 3, too overwhelming with > 3
 
             trailerPaths = new String[length];
 
@@ -112,15 +115,26 @@ public class FetchTrailerTask extends AsyncTask<Integer, Void, JSONObject> {
         } catch (JSONException e) {
             e.printStackTrace();
             trailerPaths = null;
+            length = 0;
         }
 
-        trailerButtonLayout.setWeightSum(trailerPaths.length);
+        trailerButtonLayout.setWeightSum(length);
 
-        Button[] trailerButtons = new Button[trailerPaths.length];
+        Button[] trailerButtons = new Button[length];
+        String trailerNum;
 
-        for (int i = 0; i < trailerPaths.length; i++) {
-            trailerButtons[i] = new Button(trailerButtonLayout.getContext());
-            trailerButtons[i].setText("Trailer " + (i + 1));
+        for (int i = 0; i < length; i++) {
+            trailerNum = "Trailer " + (i + 1);
+            trailerButtons[i] = new Button(App.context());
+            trailerButtons[i].setText(trailerNum);
+
+            trailerButtons[i].setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_play_circle_outline_black_24dp, 0, 0, 0);
+
+            LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            p.weight = 1;
+            trailerButtons[i].setLayoutParams(p);
 
             trailerButtonLayout.addView(trailerButtons[i]);
 
@@ -155,7 +169,7 @@ public class FetchTrailerTask extends AsyncTask<Integer, Void, JSONObject> {
             Log.e(LOG_TAG, "Incorrect trailer path");
         }
 
-        trailerButtonLayout.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(path)));
+        App.context().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(path)));
     }
 }
 

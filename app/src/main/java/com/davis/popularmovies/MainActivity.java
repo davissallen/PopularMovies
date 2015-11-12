@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         final GridView gridview = (GridView) findViewById(R.id.gridview);
 
-        FetchMoviesTask fmt = new FetchMoviesTask(getApplicationContext(), gridview);
+        FetchMoviesTask fmt = new FetchMoviesTask(gridview);
         fmt.execute("popularity.desc");
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             JSONArray jsonArray;
             jsonArray = FavoriteMovies.getFavoriteMoviesArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
         }
     }
 
@@ -112,34 +112,34 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.sortByPopularity) {
             if (favoritesFlag == 1) {
-                FetchMoviesTask fmt = new FetchMoviesTask(getApplicationContext(), gridView);
+                FetchMoviesTask fmt = new FetchMoviesTask(gridView);
                 fmt.execute("popularity.desc");
                 favoritesFlag = 0;
             }
 
             jsonArray = ((ImageAdapter) (gridView.getAdapter())).getJsonArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity, getApplicationContext()));
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity));
             setTitle("Most Popular");
 
             return true;
         } else if (id == R.id.sortByHighestRated) {
             if (favoritesFlag == 1) {
-                FetchMoviesTask fmt = new FetchMoviesTask(getApplicationContext(), gridView);
+                FetchMoviesTask fmt = new FetchMoviesTask(gridView);
                 fmt.execute("popularity.desc");
                 favoritesFlag = 0;
             }
 
             jsonArray = ((ImageAdapter) (gridView.getAdapter())).getJsonArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByHighestRated, getApplicationContext()));
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByHighestRated));
             setTitle("Highest Rated");
 
             return true;
         } else if (id == R.id.sortByFavorites) {
             jsonArray = FavoriteMovies.getFavoriteMoviesArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
 
             jsonArray = FavoriteMovies.getFavoriteMoviesArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites, getApplicationContext()));
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
             setTitle("Favorites");
             favoritesFlag = 1;
             return true;
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openDB() {
-        favoriteMoviesDB = new DBAdapter(getApplicationContext());
+        favoriteMoviesDB = new DBAdapter(App.context());
         favoriteMoviesDB.open();
     }
 

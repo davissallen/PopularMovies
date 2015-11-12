@@ -1,6 +1,5 @@
 package com.davis.popularmovies;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,7 +18,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ImageAdapter extends BaseAdapter {
-    private Context mContext;
     String[] posterPaths;
 
     private JSONArray jsonArray;
@@ -28,9 +26,8 @@ public class ImageAdapter extends BaseAdapter {
         return jsonArray;
     }
 
-    public ImageAdapter(JSONArray ja, int sortByID, Context context) {
+    public ImageAdapter(JSONArray ja, int sortByID) {
 
-        mContext = context;
         jsonArray = sortJSONArray(ja, sortByID);
         int length = jsonArray.length();
 
@@ -65,34 +62,14 @@ public class ImageAdapter extends BaseAdapter {
         return 0;
     }
 
-//    private static class ViewHolder {
-//        ImageView imageView;
-//    }
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
 
-//        ViewHolder holder = null;
-//
-//        if(convertView == null) {
-//            //Now create the ViewHolder
-//            holder = new ViewHolder();
-//            //and set its textView field to the proper value
-//            holder.imageView = new ImageView(mContext);
-//            holder.imageView.setLayoutParams(new GridView.LayoutParams(270, 400));
-//            holder.imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            holder.imageView.setPadding(8, 8, 8, 8);
-//            //and store it as the 'tag' of our view
-//            convertView.setTag(holder);
-//        } else {
-//            //We've already seen this one before!
-//            holder = (ViewHolder) convertView.getTag();
-//        }
-
         ImageView imageView;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
+            imageView = new ImageView(App.context());
             imageView.setLayoutParams(new GridView.LayoutParams(270, 400));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
@@ -100,7 +77,7 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        Picasso.with(mContext).load(posterPaths[position]).into(imageView);
+        Picasso.with(App.context()).load(posterPaths[position]).into(imageView);
 
         return imageView;
     }
@@ -149,7 +126,7 @@ public class ImageAdapter extends BaseAdapter {
 
                     return -valA.compareTo(valB);
                     //if you want to change the sort order, simply use the following:
-                    //return -valA.compareTo(valB);
+                    //return +/-valA.compareTo(valB);
                 }
             });
         }

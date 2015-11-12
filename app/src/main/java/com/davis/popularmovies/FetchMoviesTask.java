@@ -1,6 +1,5 @@
 package com.davis.popularmovies;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -21,12 +20,10 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
     private final String LOG_TAG = FetchMoviesTask.class.getSimpleName();
 
-    private Context mContext;
-    private View mView;
+    private View view;
 
-    public FetchMoviesTask(Context context, View view) {
-        mContext = context;
-        mView = view;
+    public FetchMoviesTask(View view) {
+        this.view = view;
     }
 
     @Override
@@ -122,7 +119,7 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
 
-        GridView gridview = (GridView) mView.findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity, mContext));
+        GridView gridview = (GridView) view.findViewById(R.id.gridview);
+        gridview.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity));
     }
 }

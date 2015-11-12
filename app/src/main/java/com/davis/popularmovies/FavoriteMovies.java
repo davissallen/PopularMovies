@@ -42,7 +42,7 @@ public class FavoriteMovies {
         numItemsInQueue++;
         text = "Movie added to Favorites!";
 
-        ShowToast.showToast(context, text);
+        ShowToast.showToast(text);
     }
 
     public static void removeFavoriteMovie(Context context, int position) {
@@ -62,7 +62,7 @@ public class FavoriteMovies {
         }
 
         CharSequence text = "Movie removed from Favorites List";
-        ShowToast.showToast(context, text);
+        ShowToast.showToast(text);
     }
 
     public static JSONArray getFavoriteMoviesArray() {
