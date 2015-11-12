@@ -1,13 +1,12 @@
 package com.davis.popularmovies;
 
-import android.content.Context;
 import android.widget.Toast;
 
 public class ShowToast {
 
-    public static void showToast(Context context, CharSequence text) {
+    public static void showToast(CharSequence text) {
         int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
+        Toast toast = Toast.makeText(App.context(), text, duration);
         toast.show();
     }
 

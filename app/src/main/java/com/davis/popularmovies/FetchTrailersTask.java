@@ -169,7 +169,8 @@ public class FetchTrailersTask extends AsyncTask<Integer, Void, JSONObject> {
             Log.e(LOG_TAG, "Incorrect trailer path");
         }
 
-        App.context().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(path)));
+        // for some reason, calling App.context() does not work here
+        trailerButtonLayout.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(path)));
     }
 }
 
