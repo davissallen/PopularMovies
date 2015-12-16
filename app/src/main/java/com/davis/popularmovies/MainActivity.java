@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        openDB();
+//        openDB();
     }
 
     @Override
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        closeDB();
+//        closeDB();
     }
 
     @Override
@@ -167,12 +167,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void openDB() {
-        favoriteMoviesDB = new DBAdapter(App.context());
-        favoriteMoviesDB.open();
-    }
+//    private void openDB() {
+//        favoriteMoviesDB = new DBAdapter(App.context());
+//        favoriteMoviesDB.open();
+//    }
 
-    private void closeDB() {
-        favoriteMoviesDB.close();
-    }
+//    private void closeDB() {
+//        favoriteMoviesDB.close();
+//    }
 }

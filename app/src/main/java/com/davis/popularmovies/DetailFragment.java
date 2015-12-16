@@ -42,7 +42,7 @@ public class DetailFragment extends Fragment {
     // fragments don't like constructors
     public void initFragment(JSONObject object) throws Exception {
 
-        this. object = object;
+        this.object = object;
 
         final String TITLE = "title";
         final String DESCRIPTION = "overview";
@@ -81,8 +81,8 @@ public class DetailFragment extends Fragment {
         final TextView movieRatingText = (TextView) fragmentView.findViewById(R.id.movie_rating_text);
         movieRatingText.setText(rating);
 
-        final TextView movieReleaseTExt = (TextView) fragmentView.findViewById(R.id.movie_release_date_text);
-        movieReleaseTExt.setText(releaseDate);
+        final TextView movieReleaseText = (TextView) fragmentView.findViewById(R.id.movie_release_date_text);
+        movieReleaseText.setText(releaseDate);
 
         final ImageView posterImage = (ImageView) fragmentView.findViewById(R.id.posterImageView);
         Picasso.with(getActivity().getApplicationContext()).load(imagePath).into(posterImage);
@@ -103,13 +103,17 @@ public class DetailFragment extends Fragment {
 
             public void onClick(View v) {
                 int position = FavoriteMovies.isFavorite(object);
+                DBAdapter dbAdapter = new DBAdapter(getActivity().getApplicationContext(), null, null, 1);
 
                 if (position != -1) {
                     FavoriteMovies.removeFavoriteMovie(getActivity().getApplicationContext(), position);
                     b.setText("Favorite");
                     favStar.setVisibility(View.INVISIBLE);
                 } else {
-                    FavoriteMovies.addFavoriteMovie(getActivity().getApplicationContext(), object);
+
+                    dbAdapter.addMovie(object.toString(), title);
+
+//                    FavoriteMovies.addFavoriteMovie(getActivity().getApplicationContext(), object);
                     b.setText("un-Favorite");
                     favStar.setVisibility(View.VISIBLE);
                 }
