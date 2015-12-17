@@ -23,14 +23,12 @@ public class DBAdapter extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // create table of 3 columns: id, movie title, movie json data
-        String CREATE_TABLE =
-                "CREATE TABLE " + TABLE_NAME +
-                        "(" +
-                            COLUMN_ID + " INTEGER PRIMARY KEY," +
-                            COLUMN_MOVIE_TITLE + " TEXT," +
-                            COLUMN_MOVIE_JSON + " TEXT," +
-                        ")";
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_MOVIE_TITLE + " TEXT,"
+                + COLUMN_MOVIE_JSON + " TEXT" + ")";
         db.execSQL(CREATE_TABLE);
+
     }
 
     @Override
@@ -53,6 +51,8 @@ public class DBAdapter extends SQLiteOpenHelper {
 
     public Movie findMovie(String movieJSONTitle) {
         String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_TITLE + " =  \"" + movieJSONTitle + "\"";
+
+
 
         SQLiteDatabase db = this.getWritableDatabase();
 
