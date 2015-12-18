@@ -90,11 +90,13 @@ public class DetailFragment extends Fragment {
         final ImageView favStar = (ImageView) fragmentView.findViewById(R.id.favStar);
 
         final Button b = (Button) fragmentView.findViewById(R.id.favoriteButton);
-        if (FavoriteMovies.isFavorite(object) == -1) {
+
+        final DBAdapter dbAdapter = new DBAdapter(getActivity().getApplicationContext(), null, null, 1);
+
+        if ( dbAdapter.findMovie(object) == object ) {
             b.setText("Favorite");
             favStar.setVisibility(View.INVISIBLE);
-        }
-        else {
+        } else {
             b.setText("un-Favorite");
             favStar.setVisibility(View.VISIBLE);
         }
@@ -102,18 +104,12 @@ public class DetailFragment extends Fragment {
         b.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                int position = FavoriteMovies.isFavorite(object);
-                DBAdapter dbAdapter = new DBAdapter(getActivity().getApplicationContext(), null, null, 1);
-
-                if (position != -1) {
-                    FavoriteMovies.removeFavoriteMovie(getActivity().getApplicationContext(), position);
+                if (favStar.isShown()) {
+                    dbAdapter.deleteMovie(object);
                     b.setText("Favorite");
                     favStar.setVisibility(View.INVISIBLE);
                 } else {
-
-                    dbAdapter.addMovie(object.toString(), title);
-
-//                    FavoriteMovies.addFavoriteMovie(getActivity().getApplicationContext(), object);
+                    dbAdapter.addMovie(object);
                     b.setText("un-Favorite");
                     favStar.setVisibility(View.VISIBLE);
                 }

@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class DBAdapter extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -13,7 +16,6 @@ public class DBAdapter extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "Favorite_Movies_Table";
 
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_MOVIE_TITLE = "movie_title";
     public static final String COLUMN_MOVIE_JSON = "movie_json";
 
     public DBAdapter(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -25,7 +27,6 @@ public class DBAdapter extends SQLiteOpenHelper {
         // create table of 3 columns: id, movie title, movie json data
         String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_MOVIE_TITLE + " TEXT,"
                 + COLUMN_MOVIE_JSON + " TEXT" + ")";
         db.execSQL(CREATE_TABLE);
 
@@ -37,11 +38,11 @@ public class DBAdapter extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addMovie(String movieJSONString, String movieTitle) {
+    public void addMovie(JSONObject movieJSON) {
+        String movieStr = movieJSON.toString();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_MOVIE_TITLE, movieTitle);
-        values.put(COLUMN_MOVIE_JSON, movieJSONString);
+        values.put(COLUMN_MOVIE_JSON, movieStr);
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -49,22 +50,22 @@ public class DBAdapter extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Movie findMovie(String movieJSONTitle) {
-        String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_TITLE + " =  \"" + movieJSONTitle + "\"";
-
-
+    public JSONObject findMovie(JSONObject movieJSON) {
+        String movieStr = movieJSON.toString();
+        String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_JSON + " =  \"" + movieStr + "\"";
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery(query, null);
 
-        Movie movie = new Movie();
+        JSONObject movie = null;
 
         if (cursor.moveToFirst()) {
             cursor.moveToFirst();
-            movie.setID(Integer.parseInt(cursor.getString(0)));
-            movie.setTitle(cursor.getString(1));
-            movie.setJSON(cursor.getString(2));
+
+            try { movie = new JSONObject(cursor.getString(0)); }
+            catch (JSONException e) { e.printStackTrace(); }
+
             cursor.close();
         } else {
             movie = null;
@@ -73,11 +74,12 @@ public class DBAdapter extends SQLiteOpenHelper {
         return movie;
     }
 
-    public boolean deleteMovie(String movieJSONTitle) {
+    public boolean deleteMovie(JSONObject movieJSON) {
 
         boolean result = false;
 
-        String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_TITLE + " =  \"" + movieJSONTitle + "\"";
+        String str = movieJSON.toString();
+        String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_JSON + " =  \"" + str + "\"";
 
         SQLiteDatabase db = this.getWritableDatabase();
 
