@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,7 +53,7 @@ public class DBAdapter extends SQLiteOpenHelper {
 
     public JSONObject findMovie(JSONObject movieJSON) {
         String movieStr = movieJSON.toString();
-        String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_JSON + " =  \"" + movieStr + "\"";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_JSON + " =  \'" + movieStr + "\'";
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -79,7 +80,7 @@ public class DBAdapter extends SQLiteOpenHelper {
         boolean result = false;
 
         String str = movieJSON.toString();
-        String query = "Select * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_JSON + " =  \"" + str + "\"";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_MOVIE_JSON + " =  \'" + str + "\'";
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -96,5 +97,19 @@ public class DBAdapter extends SQLiteOpenHelper {
         }
         db.close();
         return result;
+    }
+
+    public JSONArray getMovies() {
+        String query = "SELECT " + COLUMN_MOVIE_JSON + " FROM " + TABLE_NAME;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        String array[] = cursor.getColumnNames();
+
+        cursor.close();
+
+        return new JSONArray();
     }
 }

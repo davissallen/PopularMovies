@@ -110,7 +110,15 @@ public class MainActivity extends AppCompatActivity {
             GridView gridView = (GridView) findViewById(R.id.gridview);
 
             JSONArray jsonArray;
-            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+            // jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+
+            // need to make a method in the db adapter to either:
+            //      1. return the entire array of objects
+            //      2. return each jsonObject individually
+            DBAdapter dbAdapter = new DBAdapter(getApplicationContext(), null, null, 1);
+
+            jsonArray = dbAdapter.getMovies();
+
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
         }
     }
@@ -128,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         GridView gridView = (GridView) findViewById(R.id.gridview);
         JSONArray jsonArray;
 
+        DBAdapter dbAdapter = new DBAdapter(getApplicationContext(), null, null, 1);
 
         if (id == R.id.sortByPopularity) {
             if (favoritesFlag == 1) {
@@ -154,10 +163,8 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         } else if (id == R.id.sortByFavorites) {
-            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
-
-            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
+            jsonArray = dbAdapter.getMovies();
+//            jsonArray = FavoriteMovies.getFavoriteMoviesArray();
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
             setTitle("Favorites");
             favoritesFlag = 1;
