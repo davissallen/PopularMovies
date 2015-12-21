@@ -106,7 +106,9 @@ public class DBAdapter extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery(query, null);
 
-        String array[] = cursor.getColumnNames();
+        String[] s = cursor.getColumnNames();
+
+        String ss = cursor.getString(1);
 
         cursor.close();
 

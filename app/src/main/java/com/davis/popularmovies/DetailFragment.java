@@ -94,11 +94,11 @@ public class DetailFragment extends Fragment {
         final DBAdapter dbAdapter = new DBAdapter(getActivity().getApplicationContext(), null, null, 1);
 
         if ( dbAdapter.findMovie(object) == object ) {
-            b.setText("Favorite");
-            favStar.setVisibility(View.INVISIBLE);
-        } else {
             b.setText("un-Favorite");
             favStar.setVisibility(View.VISIBLE);
+        } else {
+            b.setText("Favorite");
+            favStar.setVisibility(View.INVISIBLE);
         }
 
         b.setOnClickListener(new View.OnClickListener() {
