@@ -24,14 +24,14 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
-    DBAdapter favoriteMoviesDB;
+    DBAdapter dbAdapter;
 
     // flag: will make API call each time favorites is unselected,
     // so movies will always be updated
     int favoritesFlag = 0;
 
     // internetFlag: if there was no
-//    boolean internet = true;
+    // boolean internet = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        openDB();
+        //openDB();
     }
 
     @Override
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             // need to make a method in the db adapter to either:
             //      1. return the entire array of objects
             //      2. return each jsonObject individually
-            DBAdapter dbAdapter = new DBAdapter(getApplicationContext(), null, null, 1);
+            dbAdapter = new DBAdapter(getApplicationContext());
 
             jsonArray = dbAdapter.getMovies();
 
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         GridView gridView = (GridView) findViewById(R.id.gridview);
         JSONArray jsonArray;
 
-        DBAdapter dbAdapter = new DBAdapter(getApplicationContext(), null, null, 1);
+        DBAdapter dbAdapter = new DBAdapter(getApplicationContext());
 
         if (id == R.id.sortByPopularity) {
             if (favoritesFlag == 1) {
