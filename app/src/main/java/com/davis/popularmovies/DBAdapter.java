@@ -17,16 +17,15 @@ public class DBAdapter extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "Favorite_Movies.db";
 
-    private final String CREATE_TABLE = "CREATE TABLE " + MovieEntry.TABLE_NAME + "("
-            + MovieEntry.COLUMN_NAME_ENTRY_ID + " INT,"
-            + MovieEntry.COLUMN_NAME_MOVIES_JSON + " TEXT" + ")";
-
     public DBAdapter(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String CREATE_TABLE = "CREATE TABLE " + MovieEntry.TABLE_NAME + "("
+                + MovieEntry.COLUMN_NAME_ENTRY_ID + " INT,"
+                + MovieEntry.COLUMN_NAME_MOVIES_JSON + " TEXT" + ")";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -95,8 +94,6 @@ public class DBAdapter extends SQLiteOpenHelper {
         db.delete(MovieEntry.TABLE_NAME, selection, selectionArgs);
 
         // update id numbers
-        String[] selectionArgsInt = {"0"};
-        String[] columns = {MovieEntry.COLUMN_NAME_ENTRY_ID};
         String updateIDQuery = "SELECT * FROM " + MovieEntry.TABLE_NAME +
                 " WHERE " + MovieEntry.COLUMN_NAME_ENTRY_ID + " > ?";
         Cursor cursor = db.rawQuery(updateIDQuery, new String[]{Integer.toString(deletedIDNum)});
@@ -121,6 +118,8 @@ public class DBAdapter extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, new String[]{movieJSON.toString()});
         cursor.moveToFirst();
         int num = cursor.getInt(0);
+        cursor.close();
+
         return num;
     }
 }

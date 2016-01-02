@@ -11,5 +11,6 @@
     <string name="plot_synopsis">Plot Synopsis</string>
     <string name="favorite_star">favorite_star</string>
     <string name="watch_a_trailer">Watch a Trailer:</string>
+    <string name="unfavorite">un-Favorite</string>
     <color name="white">#FFFFFF</color>
 </resources>

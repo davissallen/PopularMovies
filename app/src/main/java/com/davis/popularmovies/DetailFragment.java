@@ -96,11 +96,11 @@ public class DetailFragment extends Fragment {
 
         if (dbAdapter.findMovie(object)) {
             // if movie is already a favorite
-            b.setText("un-Favorite");
+            b.setText(R.string.unfavorite);
             favStar.setVisibility(View.VISIBLE);
         } else {
             // if movie is not a favorite
-            b.setText("Favorite");
+            b.setText(R.string.favorite);
             favStar.setVisibility(View.INVISIBLE);
         }
 
@@ -109,12 +109,12 @@ public class DetailFragment extends Fragment {
             public void onClick(View v) {
                 if (favStar.isShown()) {
                     dbAdapter.deleteMovie(object);
-                    b.setText("Favorite");
+                    b.setText(R.string.favorite);
                     favStar.setVisibility(View.INVISIBLE);
                     MovieEntry.numOfFavoritedItems--;
                 } else {
                     dbAdapter.addMovie(object);
-                    b.setText("un-Favorite");
+                    b.setText(R.string.unfavorite);
                     favStar.setVisibility(View.VISIBLE);
                     MovieEntry.numOfFavoritedItems++;
                 }
