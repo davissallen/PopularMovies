@@ -131,7 +131,7 @@ public class DetailFragment extends Fragment {
 
                     do {
                         ContentValues values = new ContentValues();
-                        values.put(MovieEntry.COLUMN_NAME_ENTRY_ID, (cursor.getInt(0) - 1));
+                        values.put(MovieEntry.COLUMN_NAME_ENTRY_ID, ++deletedIDNum);
                         String where = MovieEntry.COLUMN_NAME_ENTRY_ID + " > ?";
                         String[] whereArgs = {Integer.toString(deletedIDNum)};
                         db.update(MovieEntry.TABLE_NAME, values, where, whereArgs);

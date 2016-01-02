@@ -16,7 +16,7 @@ public class DBAdapter extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Favorite_Movies.db";
 
     private final String CREATE_TABLE = "CREATE TABLE " + MovieEntry.TABLE_NAME + "("
-            + MovieEntry.COLUMN_NAME_ENTRY_ID + " INTEGER PRIMARY KEY,"
+            + MovieEntry.COLUMN_NAME_ENTRY_ID + " INT,"
             + MovieEntry.COLUMN_NAME_MOVIES_JSON + " TEXT" + ")";
 
     public DBAdapter(Context context) {
