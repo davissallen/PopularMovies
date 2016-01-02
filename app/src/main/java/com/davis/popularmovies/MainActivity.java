@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
     // so movies will always be updated
     int favoritesFlag = 0;
 
-    // internetFlag: if there was no
-    // boolean internet = true;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // TODO: this
     public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -84,22 +80,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-//        ShowToast.showToast("the app is reopened");
-
-//        if (!internet) {
-//            final GridView gridview = (GridView) findViewById(R.id.gridview);
-//
-//            FetchMoviesTask fmt = new FetchMoviesTask(gridview);
-//            fmt.execute("popularity.desc");
-//        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-//        closeDB();
     }
 
     @Override
@@ -124,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.menu_item_share).setVisible(false);
+        menu.findItem(R.id.sort).setVisible(true);
         return true;
     }
 

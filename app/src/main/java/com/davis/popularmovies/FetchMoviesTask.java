@@ -112,7 +112,7 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
             jsonArray = jsonObject.getJSONArray("results");
 
         } catch (Exception e) {
-            Log.e(LOG_TAG, e.getMessage(), e);
+            Log.e(LOG_TAG, "No string returned from API call to TMDB", e);
             e.printStackTrace();
             ShowToast.showToast("No Internet Connection :(");
         }

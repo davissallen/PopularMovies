@@ -34,15 +34,10 @@ public class NoInternetAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         TextView textView;
-        if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            textView = new TextView(App.context());
-            textView.setLayoutParams(new GridView.LayoutParams(270, 400));
-            textView.setGravity(TextView.TEXT_ALIGNMENT_CENTER);
-            textView.setPadding(8, 8, 8, 8);
-        } else {
-            textView = (TextView) convertView;
-        }
+        textView = new TextView(App.context());
+        textView.setLayoutParams(new GridView.LayoutParams(270, 400));
+        textView.setGravity(TextView.TEXT_ALIGNMENT_CENTER);
+        textView.setPadding(8, 8, 8, 8);
 
         textView.setText(R.string.no_internet);
         return textView;
