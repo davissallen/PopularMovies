@@ -12,15 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20d91e22-bca1-45b6-bb29-fe4cf1a20bec" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieContract.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/Movie.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/Movie.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PopularMovies.iws" />
@@ -42,14 +39,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DetailFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DetailFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="128" column="88" selection-start-line="128" selection-start-column="88" selection-end-line="128" selection-end-column="88" />
+            <state vertical-scroll-proportion="0.43567252">
+              <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowToast.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ShowToast.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,18 +65,20 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#814#815#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovieContract.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MovieContract.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46052632">
+            <state vertical-scroll-proportion="0.0">
               <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#0#564#0" expanded="true" />
@@ -1584,9 +1593,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/Movie.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" />
       </list>
     </option>
   </component>
@@ -2004,7 +2013,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450738240015</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="can add movies to db, learned how to view db in shell&#10;">
+      <created>1451698475494</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1451698475494</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2085,11 +2100,20 @@
     <MESSAGE value="added find, add, delete methods to DB adapter" />
     <MESSAGE value="fixed bad query call" />
     <MESSAGE value="some updates to DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="some updates to DB" />
+    <MESSAGE value="can add movies to db, learned how to view db in shell&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="can add movies to db, learned how to view db in shell&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="115" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="117" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2411,13 +2435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ShowToast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/davis/popularmovies/ApplicationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2477,32 +2494,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieContract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="88" selection-start-line="128" selection-start-column="88" selection-end-line="128" selection-end-column="88" />
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#564#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ShowToast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieContract.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46052632">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.43567252">
+          <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
           <folding>
-            <element signature="e#0#564#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

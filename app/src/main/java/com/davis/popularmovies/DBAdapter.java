@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.davis.popularmovies.MovieContract.MovieEntry;
 
@@ -36,27 +35,20 @@ public class DBAdapter extends SQLiteOpenHelper {
     }
 
     public boolean findMovie(JSONObject movieJSON) {
-        String[] columns = {MovieEntry.COLUMN_NAME_MOVIES_JSON};
-        String selection = MovieEntry.COLUMN_NAME_MOVIES_JSON + " = ?";
-        String[] selectionArgs = {movieJSON.toString()};
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(MovieEntry.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        String query = "SELECT * FROM " + MovieEntry.TABLE_NAME + " WHERE " +
+                MovieEntry.COLUMN_NAME_MOVIES_JSON + " =?";
+        Cursor cursor = db.rawQuery(query, new String[]{movieJSON.toString()});
 
-        cursor.moveToFirst();
-
-        try {
-            cursor.getString(0);
-        } catch (Exception e) {
-            Log.e("SQL ERROR", "no string thurr");
+        if (cursor.getCount() <= 0) {
             cursor.close();
-            db.close();
             return false;
+        } else {
+            return true;
         }
 
-        cursor.close();
-        db.close();
-        return true;
+
     }
 
     public JSONArray getMovies() {

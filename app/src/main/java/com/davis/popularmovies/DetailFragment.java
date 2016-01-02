@@ -99,10 +99,12 @@ public class DetailFragment extends Fragment {
 
         if (dbAdapter.findMovie(object)) {
             // if movie is already a favorite
+            ShowToast.showToast("movie is found in DB! :D");
             b.setText("un-Favorite");
             favStar.setVisibility(View.VISIBLE);
         } else {
             // if movie is not a favorite
+            ShowToast.showToast("movie is NOT found in DB! :/");
             b.setText("Favorite");
             favStar.setVisibility(View.INVISIBLE);
         }
