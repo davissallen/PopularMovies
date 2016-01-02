@@ -35,11 +35,11 @@ public class DBAdapter extends SQLiteOpenHelper {
     }
 
     public boolean findMovie(JSONObject movieJSON) {
-
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + MovieEntry.TABLE_NAME + " WHERE " +
                 MovieEntry.COLUMN_NAME_MOVIES_JSON + " =?";
         Cursor cursor = db.rawQuery(query, new String[]{movieJSON.toString()});
+        cursor.moveToFirst();
 
         if (cursor.getCount() <= 0) {
             cursor.close();
@@ -47,8 +47,16 @@ public class DBAdapter extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
 
-
+    public int findMovieID(JSONObject movieJSON) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + MovieEntry.TABLE_NAME + " WHERE " +
+                MovieEntry.COLUMN_NAME_MOVIES_JSON + " =?";
+        Cursor cursor = db.rawQuery(query, new String[]{movieJSON.toString()});
+        cursor.moveToFirst();
+        int num = cursor.getInt(0);
+        return num;
     }
 
     public JSONArray getMovies() {

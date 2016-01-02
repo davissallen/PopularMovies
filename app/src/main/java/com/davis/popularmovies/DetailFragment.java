@@ -117,21 +117,31 @@ public class DetailFragment extends Fragment {
                     SQLiteDatabase db = dbAdapter.getWritableDatabase();
                     String selection = MovieEntry.COLUMN_NAME_MOVIES_JSON + "= ?";
                     String[] selectionArgs = {object.toString()};
+                    int deletedIDNum = dbAdapter.findMovieID(object); // save id of deleted movie
                     db.delete(MovieEntry.TABLE_NAME, selection, selectionArgs);
 
                     // update id numbers
                     String[] selectionArgsInt = {"0"};
                     String[] columns = {MovieEntry.COLUMN_NAME_ENTRY_ID};
-                    Cursor cursor = db.query(MovieEntry.TABLE_NAME, columns, MovieEntry.COLUMN_NAME_ENTRY_ID + " = ?",
-                            selectionArgsInt, null, null, null);
-                    cursor.moveToFirst();
-                    int deletedRow = cursor.getInt(0);
+                    String updateIDQuery = "SELECT * FROM " + MovieEntry.TABLE_NAME +
+                            " WHERE " + MovieEntry.COLUMN_NAME_ENTRY_ID + " > ?";
+                    Cursor cursor = db.rawQuery(updateIDQuery, new String[] {Integer.toString(deletedIDNum)});
+                    cursor.moveToFirst(); // will this mess it up?
+//                    int deletedRow = cursor.getInt(0);
 
-                    ContentValues values = new ContentValues();
-                    values.put(MovieEntry.COLUMN_NAME_ENTRY_ID, Integer.toString(cursor.getInt(0) - 1));
-                    String where = MovieEntry.COLUMN_NAME_ENTRY_ID + " > ";
-                    String[] whereArgs = { Integer.toString(deletedRow) };
-                    db.update(MovieEntry.TABLE_NAME, values, where, whereArgs);
+                    do {
+                        ContentValues values = new ContentValues();
+                        values.put(MovieEntry.COLUMN_NAME_ENTRY_ID, (cursor.getInt(0) - 1));
+                        String where = MovieEntry.COLUMN_NAME_ENTRY_ID + " > ?";
+                        String[] whereArgs = {Integer.toString(deletedIDNum)};
+                        db.update(MovieEntry.TABLE_NAME, values, where, whereArgs);
+                    } while (cursor.moveToNext());
+
+//                    ContentValues values = new ContentValues();
+//                    values.put(MovieEntry.COLUMN_NAME_ENTRY_ID, Integer.toString(cursor.getInt(0) - 1));
+//                    String where = MovieEntry.COLUMN_NAME_ENTRY_ID + " > ";
+//                    String[] whereArgs = { Integer.toString(deletedRow) };
+//                    db.update(MovieEntry.TABLE_NAME, values, where, whereArgs);
                     db.close();
                     cursor.close();
 
