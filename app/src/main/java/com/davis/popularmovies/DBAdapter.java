@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.davis.popularmovies.MovieContract.MovieEntry;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DBAdapter extends SQLiteOpenHelper {
@@ -60,17 +61,26 @@ public class DBAdapter extends SQLiteOpenHelper {
     }
 
     public JSONArray getMovies() {
-        String query = "SELECT " + MovieEntry.COLUMN_NAME_MOVIES_JSON + " FROM " + MovieEntry.TABLE_NAME;
+        JSONArray jsonArray = new JSONArray();
 
+        String query = "SELECT " + MovieEntry.COLUMN_NAME_MOVIES_JSON + " FROM " + MovieEntry.TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery(query, null);
+        cursor.moveToFirst();
 
-        cursor.moveToNext();
-        String s = cursor.getString(0);
+        do {
+            try {
+                JSONObject jsonObject = new JSONObject(cursor.getString(0));
+                jsonArray.put(jsonObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } while (cursor.moveToNext());
 
         cursor.close();
+        db.close();
 
-        return new JSONArray();
+        return jsonArray;
     }
 }
