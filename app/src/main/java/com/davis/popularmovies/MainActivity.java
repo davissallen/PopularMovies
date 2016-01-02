@@ -2,6 +2,9 @@ package com.davis.popularmovies;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,14 +16,6 @@ import android.widget.GridView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-/*
- * Steps to using the DB:
- * 1. [DONE] Instantiate the DB Adapter
- * 2. [DONE] Open the DB
- * 3. Use get, insert, delete, .. to change data.
- * 4. [DONE] Close the DB
- */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Most Popular");
 
         final GridView gridview = (GridView) findViewById(R.id.gridview);
+
+        if (!isOnline() && (favoritesFlag != 0)) {
+            gridview.setAdapter(new NoInternetAdapter());
+            return;
+        }
 
         FetchMoviesTask fmt = new FetchMoviesTask(gridview);
         fmt.execute("popularity.desc");
@@ -71,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    // TODO: this
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     @Override

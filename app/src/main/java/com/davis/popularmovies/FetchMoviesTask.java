@@ -42,7 +42,7 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
         try {
 
-            // http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=fc49cd59ea3b93d645752f06ab70ca50
+            // http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=********
 
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("http")
@@ -99,7 +99,6 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
             }
 
             return movieJSONString;
-
         }
     }
 

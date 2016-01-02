@@ -40,7 +40,7 @@ public class FetchTrailersTask extends AsyncTask<Integer, Void, JSONObject> {
 
         try {
 
-            // http://api.themoviedb.org/3/movie/76341/videos?api_key=fc49cd59ea3b93d645752f06ab70ca50
+            // http://api.themoviedb.org/3/movie/76341/videos?api_key=*******
 
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("http")

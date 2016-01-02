@@ -11,13 +11,18 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20d91e22-bca1-45b6-bb29-fe4cf1a20bec" name="Default" comment="test update">
+    <list default="true" id="20d91e22-bca1-45b6-bb29-fe4cf1a20bec" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/NoInternetAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -40,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DetailFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DetailFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4912281">
-              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onCreate#0;class#DetailFragment#0" expanded="false" />
@@ -59,25 +64,74 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.1111112">
+              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+              <folding>
+                <element signature="e#1482#2341#0" expanded="true" />
+                <element signature="e#2340#2341#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ImageAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java">
+      <file leaf-file-name="NoInternetAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/NoInternetAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+              <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
               <folding>
-                <element signature="e#1413#2272#0" expanded="true" />
-                <element signature="e#2271#2272#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
+                <element signature="e#403#404#0" expanded="true" />
+                <element signature="e#460#461#0" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#568#569#0" expanded="true" />
+                <element signature="e#1125#1145#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FetchMoviesTask.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FetchTrailersTask.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.8767123">
+              <caret line="143" column="40" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1600,21 +1654,22 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ReviewDialogFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/App.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ImageAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchReviewsTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ShowToast.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/Product.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FavoriteMovies.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/Movie.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MovieContract.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DBAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/NoInternetAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java" />
       </list>
     </option>
   </component>
@@ -1754,6 +1809,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2094,7 +2153,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451773437662</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="turned string literals to resources&#10;further clean up">
+      <created>1451774893030</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1451774893030</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2118,7 +2183,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.51024455" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32893497" sideWeight="0.48975545" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32893497" sideWeight="0.48975545" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893497" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987747" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2154,7 +2219,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a favorite icon to fragment" />
     <MESSAGE value="removed favicon, added favorite button, removed favorites gridlayout" />
     <MESSAGE value="add onClickListener to fragment button" />
     <MESSAGE value="1. Created favorite movies array&#10;2. Favorite button in fragment adds or removes movies from array,&#10;3. Toast message shows status of movies in favorites" />
@@ -2179,11 +2243,12 @@
     <MESSAGE value="add &amp; find movies work&#10;produces UNIQUE error when deleting a movie and updating the _id's" />
     <MESSAGE value="delete and reorder now works" />
     <MESSAGE value="Favorite Movies filter now works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Favorite Movies filter now works" />
+    <MESSAGE value="turned string literals to resources&#10;further clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="turned string literals to resources&#10;further clean up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="120" />
+      <option name="time" value="121" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2193,8 +2258,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
           <folding>
-            <element signature="e#1413#2272#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#1482#2341#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2242,8 +2307,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#1413#2272#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#1482#2341#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2301,8 +2366,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
-            <element signature="e#1413#2272#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#1482#2341#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2339,8 +2404,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
-            <element signature="e#1413#2272#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#1482#2341#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2377,8 +2442,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
-            <element signature="e#1413#2272#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
+            <element signature="e#1482#2341#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2489,13 +2554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2506,13 +2564,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="41" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/davis/popularmovies/ApplicationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2520,24 +2571,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ImageAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.40350878">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchReviewsTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.5438597">
           <caret line="122" column="60" selection-start-line="122" selection-start-column="60" selection-end-line="122" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.25">
-          <caret line="72" column="56" selection-start-line="72" selection-start-column="56" selection-end-line="72" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -2555,17 +2592,6 @@
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#0#564#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
-          <folding>
-            <element signature="e#1413#2272#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2596,10 +2622,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/ImageAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="30" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1111112">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="e#1482#2341#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/NoInternetAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#1125#1145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchMoviesTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/DetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4912281">
-          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#DetailFragment#0" expanded="false" />
@@ -2610,6 +2688,14 @@
             <element signature="e#4035#4054#0" expanded="true" />
             <element signature="method#onCreateOptionsMenu#0;class#DetailFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/davis/popularmovies/FetchTrailersTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.8767123">
+          <caret line="143" column="40" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
