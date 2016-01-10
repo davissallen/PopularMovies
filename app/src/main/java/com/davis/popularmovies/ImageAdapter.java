@@ -118,8 +118,8 @@ public class ImageAdapter extends BaseAdapter {
                     Double valB = 0.0;
 
                     try {
-                        valA = (Double) a.get(sortBy);
-                        valB = (Double) b.get(sortBy);
+                        valA = a.getDouble(sortBy);
+                        valB = b.getDouble(sortBy);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

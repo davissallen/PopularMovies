@@ -9,19 +9,16 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
-    <!--will make it so that a grid of potential stars will show up on top of favorited movies-->
-
     <GridView
-        android:id="@+id/favorite_grid_indicator"
+        android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="90dp"
+        android:columnWidth="150dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:stretchMode="columnWidth"
-        android:gravity="center"
-        android:clickable="false" >
+        android:gravity="center" >
     </GridView>
 
 </RelativeLayout>

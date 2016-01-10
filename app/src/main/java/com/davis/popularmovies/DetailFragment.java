@@ -149,7 +149,5 @@ public class DetailFragment extends Fragment {
 
         MenuItem item = menu.findItem(R.id.menu_item_share);
         item.setVisible(true);
-//        mShareActionProvider = (ShareActionProvider) item.getActionProvider();
-
     }
 }
