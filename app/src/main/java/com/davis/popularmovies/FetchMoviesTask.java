@@ -119,5 +119,6 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
         GridView gridview = (GridView) view.findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity));
+        gridview.performItemClick(gridview, 0, 0);
     }
 }
