@@ -1,5 +1,6 @@
 package com.davis.popularmovies;
 
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -25,6 +26,8 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
         this.view = view;
     }
 
+    int screenSize;
+
     @Override
     protected String doInBackground(String... params) {
         // These two need to be declared outside the try/catch
@@ -39,6 +42,7 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
         // inputted sort query
         String sortBy = params[0];
+        screenSize = Integer.parseInt(params[1]);
 
         try {
 
@@ -119,6 +123,10 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
         GridView gridview = (GridView) view.findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(jsonArray, R.id.sortByPopularity));
-        gridview.performItemClick(gridview, 0, 0);
+
+        // if the device is big, fill out detail fragment
+        if (screenSize >= Configuration.SCREENLAYOUT_SIZE_LARGE) {
+            gridview.performItemClick(gridview, 0, 0);
+        }
     }
 }

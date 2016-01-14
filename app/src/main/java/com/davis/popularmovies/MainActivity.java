@@ -3,6 +3,7 @@ package com.davis.popularmovies;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -43,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        int screenSize = getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
+
         FetchMoviesTask fmt = new FetchMoviesTask(gridview);
-        fmt.execute("popularity.desc");
+        fmt.execute("popularity.desc", Integer.toString(screenSize));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -115,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.findItem(R.id.menu_item_share).setVisible(false);
         menu.findItem(R.id.sort).setVisible(true);
         return true;
     }
