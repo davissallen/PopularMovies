@@ -42,7 +42,11 @@ public class FetchMoviesTask extends AsyncTask<String, Void, String> {
 
         // inputted sort query
         String sortBy = params[0];
-        screenSize = Integer.parseInt(params[1]);
+        try {
+            screenSize = Integer.parseInt(params[1]);
+        } catch (Exception e) {
+            // oh well
+        }
 
         try {
 

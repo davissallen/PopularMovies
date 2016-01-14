@@ -111,7 +111,13 @@ public class MainActivity extends AppCompatActivity {
             GridView gridView = (GridView) findViewById(R.id.gridview);
             JSONArray jsonArray;
             dbAdapter = new DBAdapter(getApplicationContext());
-            jsonArray = dbAdapter.getMovies();
+
+            try {
+                jsonArray = dbAdapter.getMovies();
+            } catch (Exception e) {
+                jsonArray = new JSONArray();
+            }
+
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
         }
     }
@@ -158,8 +164,13 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         } else if (id == R.id.sortByFavorites) {
-            jsonArray = dbAdapter.getMovies();
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
+            try {
+                jsonArray = dbAdapter.getMovies();
+                gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
+            } catch (Exception e) {
+                ShowToast.showToast("You have no favorite movies! D:");
+                gridView.setAdapter(new ImageAdapter(new JSONArray(), 23));
+            }
             setTitle("Favorites");
             favoritesFlag = 1;
             return true;
