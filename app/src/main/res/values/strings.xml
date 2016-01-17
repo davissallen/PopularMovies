@@ -13,5 +13,6 @@
     <string name="watch_a_trailer">Watch a Trailer:</string>
     <string name="unfavorite">un-Favorite</string>
     <string name="no_internet">Sorry, no internet connection :(</string>
+    <string name="out_of_ten">/ 10</string>
     <color name="white">#FFFFFF</color>
 </resources>
