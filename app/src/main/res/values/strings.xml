@@ -14,5 +14,6 @@
     <string name="unfavorite">un-Favorite</string>
     <string name="no_internet">Sorry, no internet connection :(</string>
     <string name="out_of_ten">/ 10</string>
+    <string name="app_name_short">Movies</string>
     <color name="white">#FFFFFF</color>
 </resources>
