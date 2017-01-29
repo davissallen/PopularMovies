@@ -3,14 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
 
-    <item android:id="@+id/sort"
+    <item android:id="@+id/favorites"
+        android:icon="@drawable/star"
+        android:title="@string/favorite_star"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item android:id="@+id/sortBy"
         android:icon="@drawable/ic_sort_white_24dp"
         android:title="@string/sort"
         app:showAsAction="ifRoom">
         <menu>
             <item android:id="@+id/sortByPopularity" android:title="Popularity">Popularity</item>
             <item android:id="@+id/sortByHighestRated" android:title="Highest Rated">Highest Rated</item>
-            <item android:id="@+id/sortByFavorites" android:title="Favorites">Favorites</item>
         </menu>
     </item>
 

@@ -149,7 +149,8 @@ public class DetailFragment extends Fragment {
                 Configuration.SCREENLAYOUT_SIZE_MASK;
 
         if (screenSize < Configuration.SCREENLAYOUT_SIZE_LARGE) {
-            menu.findItem(R.id.sort).setVisible(false);
+            menu.findItem(R.id.sortBy).setVisible(false);
+            menu.findItem(R.id.favorites).setVisible(false);
         }
     }
 }

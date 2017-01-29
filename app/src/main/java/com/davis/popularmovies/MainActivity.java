@@ -118,14 +118,15 @@ public class MainActivity extends AppCompatActivity {
                 jsonArray = new JSONArray();
             }
 
-            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
+            gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortBy));
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.findItem(R.id.sort).setVisible(true);
+        menu.findItem(R.id.sortBy).setVisible(true);
+        menu.findItem(R.id.favorites).setVisible(true);
         return true;
     }
 
@@ -139,7 +140,19 @@ public class MainActivity extends AppCompatActivity {
 
         DBAdapter dbAdapter = new DBAdapter(getApplicationContext());
 
-        if (id == R.id.sortByPopularity) {
+        if (id == R.id.favorites) {
+            try {
+                jsonArray = dbAdapter.getMovies();
+                gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortBy));
+            } catch (Exception e) {
+                ShowToast.showToast("You have no favorite movies! D:");
+                gridView.setAdapter(new ImageAdapter(new JSONArray(), 23));
+            }
+            setTitle("Favorites");
+            favoritesFlag = 1;
+
+            return true;
+        } else if (id == R.id.sortByPopularity) {
             if (favoritesFlag == 1) {
                 FetchMoviesTask fmt = new FetchMoviesTask(gridView);
                 fmt.execute("popularity.desc");
@@ -162,17 +175,6 @@ public class MainActivity extends AppCompatActivity {
             gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByHighestRated));
             setTitle("Highest Rated");
 
-            return true;
-        } else if (id == R.id.sortByFavorites) {
-            try {
-                jsonArray = dbAdapter.getMovies();
-                gridView.setAdapter(new ImageAdapter(jsonArray, R.id.sortByFavorites));
-            } catch (Exception e) {
-                ShowToast.showToast("You have no favorite movies! D:");
-                gridView.setAdapter(new ImageAdapter(new JSONArray(), 23));
-            }
-            setTitle("Favorites");
-            favoritesFlag = 1;
             return true;
         }
 
